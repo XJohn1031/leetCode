@@ -14,24 +14,16 @@ public class P237_DeleteNodeInALinkedList {
         listNode1.next = listNode2;
         listNode2.next = listNode3;
         listNode3.next = listNode4;
-        solution.deleteNode(listNode, listNode);
+        solution.deleteNode(listNode1);
+        System.out.println(listNode);
     }
 
-    public void deleteNode(ListNode root, ListNode delete) {
-        if (root == null || delete == null) {
+    public void deleteNode(ListNode node) {
+        if (node.next == null) {
             return;
         }
-        if (root == delete) {
-            root = null;
-            return;
-        }
-        while (root != null) {
-            if (root.next == delete) {
-                root.next = root.next.next;
-                return;
-            }
-            root = root.next;
-        }
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 
     static class ListNode {
