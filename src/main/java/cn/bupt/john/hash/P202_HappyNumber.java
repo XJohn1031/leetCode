@@ -1,6 +1,5 @@
-package cn.bupt.john.list;
+package cn.bupt.john.hash;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 

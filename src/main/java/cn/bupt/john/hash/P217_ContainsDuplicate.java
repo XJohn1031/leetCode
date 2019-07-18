@@ -1,4 +1,4 @@
-package cn.bupt.john.list;
+package cn.bupt.john.hash;
 
 import java.util.HashSet;
 

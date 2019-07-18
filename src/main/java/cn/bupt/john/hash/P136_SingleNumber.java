@@ -1,4 +1,4 @@
-package cn.bupt.john.list;
+package cn.bupt.john.hash;
 
 public class P136_SingleNumber {
 
