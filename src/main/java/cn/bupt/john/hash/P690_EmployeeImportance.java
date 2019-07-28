@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 递归or DFS
+ */
 public class P690_EmployeeImportance {
 
     public static void main(String[] args) {

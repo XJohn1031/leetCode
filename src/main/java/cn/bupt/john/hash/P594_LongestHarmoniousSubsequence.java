@@ -3,6 +3,9 @@ package cn.bupt.john.hash;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 遍历存到map，再遍历map
+ */
 public class P594_LongestHarmoniousSubsequence {
 
     public static void main(String[] args) {

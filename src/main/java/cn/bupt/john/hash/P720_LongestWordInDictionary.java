@@ -2,6 +2,14 @@ package cn.bupt.john.hash;
 
 import java.util.*;
 
+/**
+ * 思路：
+ * <p>
+ *     维护一个set
+ *     如果string length=1, 直接加入set
+ *     如果set中存在s.substring(0, s.length-1), 则加入set，并设置最大值result。
+ * </p>
+ */
 public class P720_LongestWordInDictionary {
 
     public static void main(String[] args) {

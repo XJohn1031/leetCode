@@ -1,5 +1,8 @@
 package cn.bupt.john.hash;
 
+/**
+ * O(N^2)遍历
+ */
 public class P953_VerifyingAnAlienDictionary {
 
     public static void main(String[] args) {

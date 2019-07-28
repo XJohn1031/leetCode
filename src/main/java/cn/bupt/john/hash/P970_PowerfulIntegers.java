@@ -5,6 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 解题思路
+ * <p>
+ *     在bound范围内，对x，y递增取i，j次方，结果集放入set
+ * </p>
+ */
 public class P970_PowerfulIntegers {
 
     public static void main(String[] args) {

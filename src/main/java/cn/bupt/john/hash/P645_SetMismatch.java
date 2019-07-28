@@ -4,6 +4,17 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 我的方法：
+ * 遍历求和，求和结果减去(1+n)n/2,求和公式 = x -y 。x为重复值，y为丢失值
+ * 使用set找出重复值。
+ *
+ * 更优解法：
+ * 对每个i, 设置 nums[nums[i] -1] *= -1, 也就是重复的值再次设置时，已经为-1，这里使用O(1)的空间复杂度求出了重复值
+ * 最后使用求和公式找出丢失值
+ *
+ * xor：异或比较
+ */
 public class P645_SetMismatch {
 
     public static void main(String[] args) {

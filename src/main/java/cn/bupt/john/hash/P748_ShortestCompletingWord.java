@@ -3,6 +3,13 @@ package cn.bupt.john.hash;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 非常牛逼的一个思路
+ * <p>
+ *     把26个字母看成是一堆素数，
+ *     将每个string拆解成一堆素数的乘积，然后用乘积对palate的素数乘积求模==0时，满足条件
+ * </p>
+ */
 public class P748_ShortestCompletingWord {
 
     public static void main(String[] args) {

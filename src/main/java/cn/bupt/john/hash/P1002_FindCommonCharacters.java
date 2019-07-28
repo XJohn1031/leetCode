@@ -2,6 +2,14 @@ package cn.bupt.john.hash;
 
 import java.util.*;
 
+/**
+ * 解题思路
+ * <p>
+ *     <li>使用map将每个string的字符和个数存储下来</li>
+ *     <li>遍历mapList, 构造一个resultMap，用来存储结果字符，对每个mapList的value取最小值放入resultMap</li>
+ *     <li>resultMap中存储的key为字符，value为字符个数</li>
+ * </p>
+ */
 public class P1002_FindCommonCharacters {
 
     public static void main(String[] args) {

@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * map存，没啥好说的
+ */
 public class P811_SubdomainVisitCount {
 
     public static void main(String[] args) {

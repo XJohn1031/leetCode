@@ -3,6 +3,9 @@ package cn.bupt.john.hash;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * set,没啥好说的
+ */
 public class P771_JewelsAndStones {
 
     public static void main(String[] args) {

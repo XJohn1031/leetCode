@@ -3,6 +3,9 @@ package cn.bupt.john.hash;
 import java.util.*;
 
 
+/**
+ * 没啥说的
+ */
 public class P599_MinimumIndexSumOfTwoLists {
 
     public static void main(String[] args) {
