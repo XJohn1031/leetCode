@@ -1,14 +1,12 @@
-package cn.bupt.john.tree;
+package cn.bupt.john.binarytree;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-public class P110_BalancedBinaryTree {
+public class P257_BinaryTreePaths {
 
     public static void main(String[] args) {
-        P110_BalancedBinaryTree solution = new P110_BalancedBinaryTree();
+        P257_BinaryTreePaths solution = new P257_BinaryTreePaths();
         TreeNode treeNode = new TreeNode(1);
         TreeNode t21 = new TreeNode(2);
         TreeNode t22 = new TreeNode(2);
@@ -42,24 +40,34 @@ public class P110_BalancedBinaryTree {
         t34.left = t48;
         t42.right = t51;
         t42.left = t52;
-        System.out.println(solution.isBalanced(treeNode));
+        System.out.println(solution.binaryTreePaths(treeNode));
     }
 
-    public boolean isBalanced(TreeNode root) {
-        Set<Boolean> result = new HashSet<>();
-        bfs(root, 0, result);
-        return !result.contains(false);
-    }
-
-    public int bfs(TreeNode node, int deep, Set<Boolean> result) {
-        if (node == null) {
-            return deep;
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        if (root == null) {
+            return result;
         }
-        ++deep;
-        int l = bfs(node.left, deep, result);
-        int r = bfs(node.right, deep, result);
-        if (Math.abs(l-r)>1) result.add(false);
-        return Math.max(l, r);
+        if (root.left == null && root.right == null) {
+            result.add(String.valueOf(root.val));
+            return result;
+        }
+        bfs(root.left, String.valueOf(root.val), result);
+        bfs(root.right, String.valueOf(root.val), result);
+        return result;
+    }
+
+    public void bfs(TreeNode node, String temp, List<String> result) {
+        if (node == null) {
+            return;
+        }
+        temp = temp.concat("->".concat(String.valueOf(node.val)));
+        if (node.left == null && node.right == null) {
+            result.add(temp);
+            return;
+        }
+        bfs(node.left, temp, result);
+        bfs(node.right, temp, result);
     }
 
     static class TreeNode {

@@ -1,12 +1,12 @@
-package cn.bupt.john.tree;
+package cn.bupt.john.binarytree;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-public class P257_BinaryTreePaths {
+public class P111_MinimumDepthOfBinaryTree {
 
     public static void main(String[] args) {
-        P257_BinaryTreePaths solution = new P257_BinaryTreePaths();
+        P111_MinimumDepthOfBinaryTree solution = new P111_MinimumDepthOfBinaryTree();
         TreeNode treeNode = new TreeNode(1);
         TreeNode t21 = new TreeNode(2);
         TreeNode t22 = new TreeNode(2);
@@ -40,34 +40,29 @@ public class P257_BinaryTreePaths {
         t34.left = t48;
         t42.right = t51;
         t42.left = t52;
-        System.out.println(solution.binaryTreePaths(treeNode));
+        System.out.println(solution.minDepth(treeNode));
     }
 
-    public List<String> binaryTreePaths(TreeNode root) {
-        List<String> result = new ArrayList<>();
+    public int minDepth(TreeNode root) {
+        Set<Integer> result = new HashSet<>();
         if (root == null) {
-            return result;
+            return 0;
         }
-        if (root.left == null && root.right == null) {
-            result.add(String.valueOf(root.val));
-            return result;
-        }
-        bfs(root.left, String.valueOf(root.val), result);
-        bfs(root.right, String.valueOf(root.val), result);
-        return result;
+        bfs(root, 0, result);
+        return result.stream().min(Integer::compareTo).get();
     }
 
-    public void bfs(TreeNode node, String temp, List<String> result) {
+    public void bfs(TreeNode node, int deep, Set<Integer> result) {
         if (node == null) {
             return;
         }
-        temp = temp.concat("->".concat(String.valueOf(node.val)));
-        if (node.left == null && node.right == null) {
-            result.add(temp);
+        ++deep;
+       if (node.left == null && node.right == null) {
+            result.add(deep);
             return;
         }
-        bfs(node.left, temp, result);
-        bfs(node.right, temp, result);
+        bfs(node.left, deep, result);
+        bfs(node.right, deep, result);
     }
 
     static class TreeNode {

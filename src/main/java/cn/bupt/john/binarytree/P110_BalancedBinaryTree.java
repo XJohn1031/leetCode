@@ -1,12 +1,12 @@
-package cn.bupt.john.tree;
+package cn.bupt.john.binarytree;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class P111_MinimumDepthOfBinaryTree {
+public class P110_BalancedBinaryTree {
 
     public static void main(String[] args) {
-        P111_MinimumDepthOfBinaryTree solution = new P111_MinimumDepthOfBinaryTree();
+        P110_BalancedBinaryTree solution = new P110_BalancedBinaryTree();
         TreeNode treeNode = new TreeNode(1);
         TreeNode t21 = new TreeNode(2);
         TreeNode t22 = new TreeNode(2);
@@ -40,29 +40,24 @@ public class P111_MinimumDepthOfBinaryTree {
         t34.left = t48;
         t42.right = t51;
         t42.left = t52;
-        System.out.println(solution.minDepth(treeNode));
+        System.out.println(solution.isBalanced(treeNode));
     }
 
-    public int minDepth(TreeNode root) {
-        Set<Integer> result = new HashSet<>();
-        if (root == null) {
-            return 0;
-        }
+    public boolean isBalanced(TreeNode root) {
+        Set<Boolean> result = new HashSet<>();
         bfs(root, 0, result);
-        return result.stream().min(Integer::compareTo).get();
+        return !result.contains(false);
     }
 
-    public void bfs(TreeNode node, int deep, Set<Integer> result) {
+    public int bfs(TreeNode node, int deep, Set<Boolean> result) {
         if (node == null) {
-            return;
+            return deep;
         }
         ++deep;
-       if (node.left == null && node.right == null) {
-            result.add(deep);
-            return;
-        }
-        bfs(node.left, deep, result);
-        bfs(node.right, deep, result);
+        int l = bfs(node.left, deep, result);
+        int r = bfs(node.right, deep, result);
+        if (Math.abs(l-r)>1) result.add(false);
+        return Math.max(l, r);
     }
 
     static class TreeNode {

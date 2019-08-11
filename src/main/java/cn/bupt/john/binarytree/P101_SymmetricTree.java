@@ -1,4 +1,4 @@
-package cn.bupt.john.tree;
+package cn.bupt.john.binarytree;
 
 public class P101_SymmetricTree {
 
