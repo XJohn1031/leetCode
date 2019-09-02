@@ -1,24 +1,9 @@
 package cn.bupt.john.midList;
 
-/**
- * 解题思路 :
- * <p>
- *     1.需要遍历整个list的每个节点,
- *     2.在遍历过程中, 对遍历过的每个节点之前的节点都进行排序
- *     3.维护一个dummy节点, dummy.next是我们真正排好序的头结点.
- * </p>
- *
- * leetcode思路:
- * <p>
- *     1. 找到中间节点
- *     2. 逆序中间节点之后的list
- *     3. merge两个list
- * </p>
- */
-public class P147_InsertionSortList {
+public class P148_SortList {
 
     public static void main(String[] args) {
-        P147_InsertionSortList solution = new P147_InsertionSortList();
+        P148_SortList solution = new P148_SortList();
         ListNode listNode = new ListNode(3);
         ListNode listNode1 = new ListNode(2);
         ListNode listNode2 = new ListNode(1);
@@ -26,13 +11,12 @@ public class P147_InsertionSortList {
         listNode.next = listNode1;
         listNode1.next = listNode2;
         listNode2.next = listNode4;
-        ListNode listNode3 = solution.insertionSortList(listNode);
+        ListNode listNode3 = solution.sortList(listNode);
         System.out.println(listNode3);
     }
 
-    // 这个是排好序的list的头结点dummy, first.next是真正的排好序的头结点
     private ListNode first = new ListNode(0);
-    public ListNode insertionSortList(ListNode head) {
+    public ListNode sortList(ListNode head) {
         first.next = head;
         while (head != null) {
             // 对每个node都需要进行一次插入, 为了避免node插入之后next节点被修改, 先存下next节点信息
